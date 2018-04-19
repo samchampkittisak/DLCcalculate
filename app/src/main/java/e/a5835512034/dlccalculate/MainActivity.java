@@ -1,11 +1,16 @@
 package e.a5835512034.dlccalculate;
 
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,7 +19,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements ItemClickListener{
 ActionBarDrawerToggle actionBarDrawerToggle;
     private String[] mDrawertitle = {"random integer 1 to 100 for Multiplicand","random integer 1 to 100 for calculate",
             "plus","minus","multiply","divide","mod","calculate"};
@@ -24,6 +32,7 @@ ActionBarDrawerToggle actionBarDrawerToggle;
     private double rdom0,rdom1;
     private String rdoms0,rdoms1,sans;
     private double ans;
+    RecyclerViewAdapter adap;
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -41,6 +50,25 @@ ActionBarDrawerToggle actionBarDrawerToggle;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
+        String[] list = { "Cat", "Dog", "food"
+                , "game","movie","phone","school","shop","travel","beverage" };
+
+        int[] image = {R.drawable.cat,R.drawable.dog,R.drawable.food,R.drawable.game,R.drawable.movie,R.drawable.phone,R.drawable.school,
+                R.drawable.shop,R.drawable.travel,R.drawable.water};
+
+        List<Actor> setv = new ArrayList<Actor>();
+        for(int i=0;i< list.length;i++)
+            setv.add(new Actor(list[i],image[i]));
+
+        RecyclerView listView = findViewById(R.id.listview1);
+        adap = new RecyclerViewAdapter(this,setv);
+        listView.setLayoutManager(new LinearLayoutManager(this));
+        adap.setClickListener(this);
+        listView.setAdapter(adap);
+
+        //------------------------------------//
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer);
         mListView = (ListView) findViewById(R.id.list1);
         ip1 = (TextView) findViewById(R.id.ip1);
@@ -110,4 +138,108 @@ ActionBarDrawerToggle actionBarDrawerToggle;
             return true;
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    public void onItemClick(View view, int position) {
+        Toast.makeText(this, "Click: " + adap.getItem(position) +
+                " on row:" + position, Toast.LENGTH_SHORT).show();
+        if (position == 0){
+            Intent zero = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",0);
+            zero.putExtra("putmessage",putmessage);
+            startActivity(zero);
+            finish();
+        }
+        else if (position == 1){
+            Intent one = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",1);
+            one.putExtra("putmessage",putmessage);
+            startActivity(one);
+            finish();
+        }
+        else if (position == 2){
+            Intent two = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",2);
+            two.putExtra("putmessage",putmessage);
+            startActivity(two);
+            finish();
+        }
+        else if (position == 3){
+            Intent three = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",3);
+            three.putExtra("putmessage",putmessage);
+            startActivity(three);
+            finish();
+        }
+        else if (position == 4){
+            Intent four = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",4);
+            four.putExtra("putmessage",putmessage);
+            startActivity(four);
+            finish();
+        }
+        else if (position == 5){
+            Intent five = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",5);
+            five.putExtra("putmessage",putmessage);
+            startActivity(five);
+            finish();
+        }
+        else if (position == 6){
+            Intent six = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",6);
+            six.putExtra("putmessage",putmessage);
+            startActivity(six);
+            finish();
+        }
+        else if (position == 7){
+            Intent seven = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",7);
+            seven.putExtra("putmessage",putmessage);
+            startActivity(seven);
+            finish();
+        }
+        else if (position == 8){
+            Intent eight = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",8);
+            eight.putExtra("putmessage",putmessage);
+            startActivity(eight);
+            finish();
+        }
+        else if (position == 9){
+            Intent nine = new Intent(MainActivity.this,CatActivity.class);
+            Bundle putmessage = new Bundle();
+            putmessage.putString("mes.",adap.getItem(position).toString());
+            putmessage.putInt("int.",9);
+            nine.putExtra("putmessage",putmessage);
+            startActivity(nine);
+            finish();
+        }
+        else {}
+    }
+
+    public void goshow(View view) {
+        Intent goshow = new Intent(MainActivity.this,Main2Activity.class);
+        goshow.putExtra("MyData",new MyData());
+        startActivity(goshow);
+    }
+
+
 }

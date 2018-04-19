@@ -11,7 +11,8 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/con01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FFEEB8">
 
         <TextView
             android:id="@+id/trandom"
@@ -78,6 +79,22 @@
             app:layout_constraintLeft_toRightOf="@+id/cal"
             app:layout_constraintBottom_toBottomOf="@+id/cal"
             />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="go"
+            app:layout_constraintBottom_toTopOf="@+id/listview1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="10dp"
+            android:onClick="goshow"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/listview1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/call">
+
+        </android.support.v7.widget.RecyclerView>
     </android.support.constraint.ConstraintLayout>
 
     <ListView
@@ -87,4 +104,5 @@
         android:layout_gravity="start"
         android:background="#FFFFFF"
         android:dividerHeight="1dp"></ListView>
+
 </android.support.v4.widget.DrawerLayout>

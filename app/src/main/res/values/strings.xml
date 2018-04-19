@@ -2,4 +2,5 @@
     <string name="app_name">DLC calculate</string>
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
+    <string name="start">start</string>
 </resources>
